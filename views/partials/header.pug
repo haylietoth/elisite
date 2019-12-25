@@ -1,0 +1,20 @@
+div.whitebar
+ header.site-header
+    nav.navbar
+      .container-fluid
+        .navbar-header
+         button.navbar-toggle(type='button', data-toggle='collapse', data-target='#myNavbar')
+            span.icon-bar
+            span.icon-bar
+            span.icon-bar
+         a.navbar-brand(href='./') elijah dirk
+        #myNavbar.collapse.navbar-collapse
+            ul.nav.navbar-nav.navbar-right
+              li
+                a(href='#' data-toggle="collapse" onclick="filterSelection('nature')") writer
+              li
+                a(href='#' data-toggle="collapse") designer
+              li
+                a(href='#' data-toggle="collapse" onclick="filterSelection('thinker')") thinker
+              li
+                a(href='#site-footer' id="info") info

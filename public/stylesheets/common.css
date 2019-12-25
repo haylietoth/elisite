@@ -1,0 +1,125 @@
+@font-face {
+  font-family: 'Fabrik-Regular';
+  src: url('stylesheets/fonts/Fabrik-Regular/Fabrik-Regular.otf');
+  src: url('stylesheets/fonts/Fabrik-Regular/Fabrik-Regular.otf?#iefix') format('embedded-opentype');
+}
+
+@font-face {
+  font-family: 'Fabrik-Bold';
+  src: url('stylesheets/fonts/Fabrik-Bold/Fabrik-Bold.otf');
+  src: url('stylesheets/fonts/Fabrik-Bold/Fabrik-Bold.otf?#iefix') format('embedded-opentype');
+}
+
+@font-face {
+  font-family: 'Material Icons';
+  font-style: normal;
+  font-weight: 200;
+  src: url('stylesheets/fonts/MaterialIcons-Regular.woff');
+  src: local('Material Icons'),
+    local('MaterialIcons-Regular'),
+    url('stylesheets/fonts/MaterialIcons-Regular.woff') format('woff2'),
+}
+
+* {
+  -webkit-font-smoothing: antialiased;
+   font-family: 'Fabrik-Regular', sans-serif;
+}
+::selection {
+  background: #FFF7C7; /* WebKit/Blink Browsers */
+}
+::-moz-selection {
+  background: #FFF7C7; /* Gecko Browsers */
+}
+* {
+  box-sizing: border-box;
+}
+
+/*
+ * Globals
+ */
+
+html {
+    margin-bottom: 150px;
+}
+.site-footer::-webkit-scrollbar {
+    width: 17px;
+}
+ 
+.site-footer::-webkit-scrollbar-track {
+    background-color: #fff;
+  }
+ 
+.site-footer::-webkit-scrollbar-thumb {
+    -webkit-border-radius:8px;
+    border-radius:8px;
+    border-left: 4.3px solid #fff; /*00b7a0*/
+    border-right:4.3px solid #fff; /*00b7a0*/
+    background: #C2C2C2;
+}
+
+body {
+    display:none;
+    background:white;
+	color: #000000;
+	font-family: 'Fabrik-Regular', sans-serif !important;
+	line-height: 1.6;
+    min-height: 100vh;
+    opacity: 1;
+	-webkit-transition: background 1s ease;
+	-moz-transition: background 500ms ease;
+	transition: background 500ms ease;
+}
+
+a {
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing : 0.35;
+  line-height: 4vmin;
+  text-decoration: none;
+}
+
+p a {
+  text-decoration: underline;
+}
+h1, h2, h3, h4, h5, h6 {
+	font-family: 'Fabrik-Regular', sans-serif !important;
+}
+h1 {
+  font-size: 42px; 
+  font-weight: normal; 
+  color: black; 
+  letter-spacing : 1.14;
+  margin-bottom: 1rem;
+}
+h2, h2 a {
+  margin-bottom: 1rem;
+  font-size: 4vmin;
+  font-weight: normal;
+  letter-spacing : 0.85;
+  line-height: 6.4vmin;
+ 
+}
+h3, h3 a {
+  Color:  black;
+  font-size: 18px;
+  font-weight: 400;
+  letter-spacing : 0.52;
+  line-height: 34px;
+}
+p {
+  margin-bottom: 2rem;
+  font-size: 3vmin;
+}
+pre, ul {
+  margin-bottom: 20px;
+}
+strong {
+  font-weight: bold;
+}
+em {
+  font-style: italic;
+}
+img {
+  max-width: 100%;
+  width: 100%;
+}

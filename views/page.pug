@@ -1,0 +1,22 @@
+extends ./layout.pug
+
+block prepend body 
+  body(data-wio-id=pageContent.id)
+
+  include ./partials/header.pug
+
+  // Content Section
+  - var project = pageContent.data.project_info[0]
+  div.container
+   div.project(style="display: block;")
+    section.content-section(class=sectionClass)
+       h2
+        != PrismicDOM.RichText.asText(project.title)
+       //- Display the slices
+       for slice in pageContent.data.page_content
+         case slice.slice_type
+           when 'full_width_image'
+             include ./partials/full-width-image.pug
+           when 'text-section'
+             include ./partials/text-section.pug
+  include ./partials/footer.pug

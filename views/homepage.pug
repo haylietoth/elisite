@@ -1,0 +1,23 @@
+extends ./layout.pug
+
+block prepend body
+  body.homepage(data-wio-id=pageContent.id)
+    
+    include ./partials/header.pug
+    
+    // Content Section
+    div.container
+     for slice in pageContent.data.page_content
+        case slice.slice_type
+          when 'text'
+            include ./partials/home-text-section.pug  
+     div.thumbails.clear
+      //- Display the slices
+      for slice in pageContent.data.page_content
+        case slice.slice_type
+          when 'thumbnail'
+            include ./partials/thumbnail.pug 
+     include ./partials/footer.pug
+
+
+
