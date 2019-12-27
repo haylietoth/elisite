@@ -68,6 +68,7 @@ body {
 	-webkit-transition: background 1s ease;
 	-moz-transition: background 500ms ease;
 	transition: background 500ms ease;
+    text-align: center;
 }
 
 a {
