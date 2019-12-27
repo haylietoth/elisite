@@ -86,6 +86,13 @@
     
 }
 
+.navbar-nav>li>a:focus {
+  color: black !important;
+  letter-spacing: 1.0px !important;
+  font-size: 20px !important;
+  background-color: white !important;
+}
+
 .container-fluid>.navbar-collapse, .navbar-collapse.in {
     background-color: white !important;
 }
