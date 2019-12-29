@@ -1,5 +1,4 @@
-div.col-sm-4.thumbnail
- div(class='category '+PrismicDOM.RichText.asText(slice.primary.category)+"'")
+div.col-sm-4.thumbnail(class=PrismicDOM.RichText.asText(slice.primary.category))
   a(href=PrismicDOM.Link.url(slice.primary.link, ctx.linkResolver))
    div.thumb_image(style="background-image: url("+slice.primary.hover_image.url+")")
     img(name='image-link', src=slice.primary.image.url, alt=PrismicDOM.RichText.asText(slice.primary.category))

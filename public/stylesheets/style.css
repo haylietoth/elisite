@@ -183,8 +183,8 @@ a:hover {
     display: none !important;
 }
 
-.show {
-    display: block !important;
+#thumbnails {
+    padding-top: 130px;
 }
 
 .clear {
@@ -254,10 +254,35 @@ a:hover {
     text-decoration: none;
     font-size: 4vm;
   }
+  .info {
+    padding: 0px 25px;
+  }
   
 }
 
-@media (max-width: 767px) {
+@media (min-width: 769px and max-width: 1024px) {
+    .home-content-section {
+      padding-top: 55%;
+    }
+    
+    .col-sm-4 {
+        width: 50% !important;
+    }
+    
+    .thumbnail {
+        padding: 4px;
+    }
+}
+
+@media (max-width: 768px) {
+  .col-sm-4 {
+    width: 100% !important;
+  }
+  .navbar-nav {
+    border: 2px solid black;
+    border-top: 0px;
+    margin: 0 -15px !important;
+  }
   a.thumb {
     font-size: 20px;
   }
@@ -269,18 +294,17 @@ a:hover {
     padding: 0px; 
   }
   .home-content-section {
-    padding-right: 10%;
-    padding-left: 10%;
-    padding-bottom: 0;
+    padding-top: 50%;
+  }
+    
+  .text-content p {
+    font-size: 30px;
   }
   .content-section h2{
     padding-top: 100px;
   }
   .content-section {
     padding-top: 25px;
-  }
-  .info {
-    padding: 0px 15px;
   }
   .column {
     width: 100%;

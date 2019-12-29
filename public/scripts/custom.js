@@ -17,27 +17,11 @@ jQuery (document).ready(function(){
 //        });
 //    });
     
-    /*page fade-in and fade-out */
-    $('body').css('display','none');
-    $('body').fadeIn(500);
-
-    $(document).on("click", "a", function () {
-        var newUrl = $(this).attr("href");
-        if (!newUrl || newUrl[0] === "#") {
-            location.hash = newUrl;
-            return;
-        }
-        $("html").fadeOut(function () {
-            location = newUrl;
-        });
-        return false;
-    });
-    
     /*info section animation*/
     $(function(){
         $('#info').click(function() {
             if($('#site-footer').hasClass('closed')) {
-                $('#site-footer').animate({'top': '67px'}, 1000);
+                $('#site-footer').animate({'top': '100px'}, 1000);
                     $(this).delay(1000)
                            .queue(function () {
                                 $(this).addClass('material-icons').text('arrow_downward');
@@ -78,37 +62,42 @@ jQuery (document).ready(function(){
     
     //end random text//
     
-//    //filter
-    filterSelection("all")
-    function filterSelection(c) {
-      var x, i;
-      x = document.getElementsByClassName("category");
-      if (c == "all") c = "";
-      for (i = 0; i < x.length; i++) {
-        w3RemoveClass(x[i], "show");
-        if (x[i].className.indexOf(c) > -1) w3AddClass(x[i], "show");
-      }
-    }
-
-    function w3AddClass(element, name) {
-      var i, arr1, arr2;
-      arr1 = element.className.split(" ");
-      arr2 = name.split(" ");
-      for (i = 0; i < arr2.length; i++) {
-        if (arr1.indexOf(arr2[i]) == -1) {element.className += " " + arr2[i];}
-      }
-    }
-
-    function w3RemoveClass(element, name) {
-      var i, arr1, arr2;
-      arr1 = element.className.split(" ");
-      arr2 = name.split(" ");
-      for (i = 0; i < arr2.length; i++) {
-        while (arr1.indexOf(arr2[i]) > -1) {
-          arr1.splice(arr1.indexOf(arr2[i]), 1);     
-        }
-      }
-      element.className = arr1.join(" ");
-    }
-////end filter//
+    ////filter////
+    $(document).ready(function(){
+      $("#write").click(function(){
+        $(".Designer").hide();
+        $(".Writer").show();
+      });
+      $("#design").click(function(){
+        $(".Writer").hide();
+        $(".Designer").show();
+      });
+    });
+    ////end filter//
+    
+    /*Smooth scroll*/
+    $(document).ready(function(){
+        $("#write").on('click', function(event) {
+            if (this.hash !== "") {
+              event.preventDefault();
+              var hash = this.hash;
+              $('html, body').animate({
+                scrollTop: $(hash).offset().top
+              }, 1000, function(){
+                window.location.hash = hash;
+              });
+            }
+          });
+        $("#design").on('click', function(event) {
+            if (this.hash !== "") {
+              event.preventDefault();
+              var hash = this.hash;
+              $('html, body').animate({
+                scrollTop: $(hash).offset().top
+              }, 1000, function(){
+                window.location.hash = hash;
+              });
+            }
+          });
+        });
 });
