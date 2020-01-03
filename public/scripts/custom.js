@@ -1,22 +1,4 @@
 jQuery (document).ready(function(){
-    
-    /*Google Analytics*/
-//    window.dataLayer = window.dataLayer || [];
-//    function gtag(){dataLayer.push(arguments);}
-//    gtag('js', new Date());
-//    gtag('config', 'UA-135736418-1');
-//    
-//    $(function() {
-//        $('a').each(function() {
-//            if ($(this).attr('id') == 'info') {
-//                this.setAttribute("onclick","document.getElementById('site-footer').classList.toggle('closed');ga('send', 'event', '"+$(this).attr("href")+"', 'Click', '"+$(this).text()+"');")
-//            }
-//            else {
-//                this.setAttribute("onclick","ga('send', 'event', '"+$(this).attr("href")+"', 'Click', '"+$(this).text()+"');")
-//            }
-//        });
-//    });
-    
     /*info section animation*/
     $(function(){
         $('#info').click(function() {
@@ -40,12 +22,16 @@ jQuery (document).ready(function(){
     
     //random quote
     (function() {
+      var quote = document.getElementsByClassName("quotes");
       // Define images
-      var getQuote, quotes, totalQuotes;
-
-      quotes = ['This is where dirk elijah would write something interesting, clever, and/or humorous to grab someones attention so that they will continue to look at his site.', 'But wait! If the user is to refresh this page, he will also have this phrase change (up to four times) leaving the user delighted with a surprise when the re-enter his  fsite...', 'Only to be later disappointed when they find out there is only four different phrases. But no worries, if you want me to write more you can hire me!', 'But it will of course be better if he comes up with is own material, I mean that is the point of this whole website.'];
-
-      // Counts total images
+      var getQuote,totalQuotes;
+      var quotes = [];
+        
+      for (i=0;i<quote.length;i++) {
+        var q = quote[i].innerText;
+        quotes.push(q);
+      }   
+      // Counts total quotes
       totalQuotes = quotes.length;
 
       // Get Quote

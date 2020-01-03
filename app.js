@@ -77,19 +77,35 @@ app.get('/:uid', (req, res, next) => {
   // Store the param uid in a variable
   const uid = req.params.uid;
   
-  // Get a page by its uid
-  req.prismic.api.getByUID("page", uid)
-  .then((pageContent) => {
-    if (pageContent) {
-      res.render('page', { pageContent });
-    } else {
-      res.status(404).render('404');
+    if (uid == 'action') {
+      // Get a page by its uid
+      req.prismic.api.getByUID("action", uid)
+      .then((pageContent) => {
+        if (pageContent) {
+          res.render('action', { pageContent });
+        } else {
+          res.status(404).render('404');
+        }
+      })
+      .catch((error) => {
+        next(`error when retriving page ${error.message}`);
+      });
+    }      
+    else {
+      // Get a page by its uid
+      req.prismic.api.getByUID("page", uid)
+      .then((pageContent) => {
+        if (pageContent) {
+          res.render('page', { pageContent });
+        } else {
+          res.status(404).render('404');
+        }
+      })
+      .catch((error) => {
+        next(`error when retriving page ${error.message}`);
+      });
     }
-  })
-  .catch((error) => {
-    next(`error when retriving page ${error.message}`);
-  });
-});
+}); 
 
 /*
  * Homepage route

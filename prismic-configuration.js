@@ -16,6 +16,9 @@ module.exports = {
     if (doc.type == 'page') {
         return '/' + doc.uid;
     }
+    if (doc.type == 'action') {
+        return '/' + doc.uid;
+    }
     return '/';
   }
 };

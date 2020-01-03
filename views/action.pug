@@ -1,0 +1,22 @@
+extends ./layout.pug
+
+block prepend body
+  body(data-wio-id=pageContent.id)
+    
+    include ./partials/header.pug
+    
+    // Content Section
+    div.container 
+     div.links
+        ul.nav.navbar-nav
+          li
+            a(href='#thumbnails' id="write") writer
+          li
+            a(href='#thumbnails' id="design") designer
+     div.thumbails.clear(id="thumbnails")
+      //- Display the slices
+      for slice in pageContent.data.page_content
+        case slice.slice_type
+          when 'thumbnail'
+            include ./partials/thumbnail.pug 
+     include ./partials/footer.pug
