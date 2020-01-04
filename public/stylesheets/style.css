@@ -159,7 +159,7 @@ a:hover {
 }
 
 .info {
-    padding: 55px 17% 150px 17%;
+    padding: 0px 10% 150px 10%;
     width: 100%;
     color: black;
     background-color: #fff;
@@ -171,6 +171,10 @@ a:hover {
 
 .footer-p1 {
     font-size: 4vmin;
+}
+
+.footer-desc p:not(:nth-last-child(1)) {
+    padding-top:30px;
 }
 
 .footer-column {
@@ -185,6 +189,10 @@ a:hover {
 
 .col-sm-4 .thumbnail {
     display: none !important;
+}
+
+.footer-p1 {
+    display: none;
 }
 
 .clear {

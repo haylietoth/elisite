@@ -61,6 +61,19 @@ jQuery (document).ready(function(){
     });
     ////end filter//
     
+        ////filter////
+    $(document).ready(function(){
+      $("#sh").click(function(){
+        $(".long").hide();
+        $(".short").show();
+      });
+      $("#lg").click(function(){
+        $(".short").hide();
+        $(".long").show();
+      });
+    });
+    ////end filter//
+    
     /*Smooth scroll*/
     $(document).ready(function(){
         $("#write").on('click', function(event) {
