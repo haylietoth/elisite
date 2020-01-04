@@ -3,19 +3,20 @@ jQuery (document).ready(function(){
     $(function(){
         $('#info').click(function() {
             if($('#site-footer').hasClass('closed')) {
+                $('.navbar-collapse').removeClass('in');
                 $('#site-footer').animate({'top': '100px'}, 1000);
                     $(this).delay(1000)
                            .queue(function () {
                                 $(this).addClass('material-icons').text('arrow_downward');
                                 $(this).dequeue();
                            });
-                  
                     $('#site-footer').removeClass('closed');
             }
             else {
                 $('#site-footer').addClass('closed');
                 $(this).removeClass('material-icons').text('Info');
-                $('#site-footer').animate({'top': '1500px'}, 1000)
+                $('#site-footer').animate({'top': '1500px'}, 1000);
+                $('.navbar-collapse').removeClass('in');
             }
         });
     });
@@ -59,9 +60,7 @@ jQuery (document).ready(function(){
         $(".Designer").show();
       });
     });
-    ////end filter//
     
-        ////filter////
     $(document).ready(function(){
       $("#sh").click(function(){
         $(".long").hide();
@@ -73,30 +72,4 @@ jQuery (document).ready(function(){
       });
     });
     ////end filter//
-    
-    /*Smooth scroll*/
-    $(document).ready(function(){
-        $("#write").on('click', function(event) {
-            if (this.hash !== "") {
-              event.preventDefault();
-              var hash = this.hash;
-              $('html, body').animate({
-                scrollTop: $(hash).offset().top
-              }, 1000, function(){
-                window.location.hash = hash;
-              });
-            }
-          });
-        $("#design").on('click', function(event) {
-            if (this.hash !== "") {
-              event.preventDefault();
-              var hash = this.hash;
-              $('html, body').animate({
-                scrollTop: $(hash).offset().top
-              }, 1000, function(){
-                window.location.hash = hash;
-              });
-            }
-          });
-        });
 });
