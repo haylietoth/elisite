@@ -151,7 +151,7 @@ a:hover {
 #site-footer a {
     color: black;
     text-decoration: none;
-    font-size: 2.5vmin;
+    font-size: 20px;
 }
 
 #site-footer a:hover {
@@ -289,6 +289,9 @@ a:hover {
 
 /* Media Queries */
 @media (max-width: 1060px) {
+  .links li {
+    display: inline-block;
+  }
   .site-header {
     padding-left: 20px;
     padding-right: 20px;
@@ -315,18 +318,22 @@ a:hover {
       padding-top: 55%;
     }
     
-    .col-sm-4 {
-        width: 49.33% !important;
-    }
-    
     .thumbnail {
         padding: 4px;
     }
+}@media (min-width: 1024px) {
+    .col-sm-4 {
+        width: 33.333333% !important;
+    }
 }
-
+@media (max-width: 1024px) {
+    .col-sm-4 {
+        width: 50% !important;
+    }
+}
 @media (max-width: 768px) {
   .col-sm-4 {
-    width: 49.33% !important;
+    width: 100% !important;
   }
   .links ul {
     border: 0;
