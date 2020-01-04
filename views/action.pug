@@ -6,13 +6,14 @@ block prepend body
     include ./partials/header.pug
     
     // Content Section
-    div.container 
+    div.container(style="padding-top:140px;") 
      div.links
-        ul.nav.navbar-nav
-          li
-            a(href='#thumbnails' id="write") writer
+      div.center
+        ul.navbar-nav
           li
             a(href='#thumbnails' id="design") designer
+          li
+            a(href='#thumbnails' id="write") writer
      div.thumbails.clear(id="thumbnails")
       //- Display the slices
       for slice in pageContent.data.page_content

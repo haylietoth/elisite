@@ -88,7 +88,6 @@
   color: black;
   letter-spacing: 1.0px;
   font-size: 20px;
-    
 }
 
 .navbar-nav>li>a:focus {
@@ -188,10 +187,6 @@ a:hover {
     display: none !important;
 }
 
-#thumbnails {
-    padding-top: 130px;
-}
-
 .clear {
     z-index: -1;
     background-color: white;
@@ -225,8 +220,43 @@ a:hover {
 
 /*Actions page*/
 .links {
-    padding-top: 100px;
     text-align: center;
+}
+
+.links ul {
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 0;
+}
+
+.center {
+    display: inline-block;
+}
+
+.links li {
+    position: relative;
+    display: block;
+}
+
+.links li a {
+    position: relative;
+    display: block;
+    padding: 10px 15px;
+}
+
+.links a:focus, .links a:active {
+    text-decoration: underline;
+}
+
+.links li:first-child::after {
+  position: absolute;
+  content: "";
+  width: 2px;
+  height: 45%;
+  right: 0;
+  background: black;
+  top: 50%;
+  transform: translate(0, -50%);
 }
 /*end actions page*/
 
@@ -278,7 +308,7 @@ a:hover {
     }
     
     .col-sm-4 {
-        width: 50% !important;
+        width: 49.33% !important;
     }
     
     .thumbnail {
@@ -288,7 +318,10 @@ a:hover {
 
 @media (max-width: 768px) {
   .col-sm-4 {
-    width: 100% !important;
+    width: 49.33% !important;
+  }
+  .links ul {
+    border: 0;
   }
   .navbar-nav {
     border: 2px solid black;
@@ -345,7 +378,10 @@ a:hover {
   }
 }
 
-@media (max-width: 450px) {
+@media (max-width: 450px) {  
+  .col-sm-4 {
+    width: 100% !important;
+  }
   p {
     font-size: 4.5vmin    
   }
