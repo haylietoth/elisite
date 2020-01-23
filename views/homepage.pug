@@ -6,14 +6,11 @@ block prepend body
     include ./partials/header.pug
     
     // Content Section
-    div.container
-     section.home-content-section.text-content(class=sectionClass)
+    div.test
+     section.text-content(class=sectionClass)
        p.home-content
        for slice in pageContent.data.page_content
          case slice.slice_type
            when 'text'
              include ./partials/home-text-section.pug
-     include ./partials/footer.pug
-
-
-
+    include ./partials/footer.pug
