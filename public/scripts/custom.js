@@ -20,18 +20,32 @@ jQuery (document).ready(function(){
             }
         });
     });
-    
+    /*page fade-in and fade-out */
+    $('body').css('display','none');
+    $('body').fadeIn(500);
+
+    $(document).on("click", "a", function () {
+        var newUrl = $(this).attr("href");
+        if (!newUrl || newUrl[0] === "#") {
+            location.hash = newUrl;
+            return;
+        }
+        $("html").fadeOut(function () {
+            location = newUrl;
+        });
+        return false;
+    });
     //random quote
     (function() {
       var quote = document.getElementsByClassName("quotes");
       // Define images
       var getQuote,totalQuotes;
       var quotes = [];
-        
+
       for (i=0;i<quote.length;i++) {
         var q = quote[i].innerText;
         quotes.push(q);
-      }   
+      }
       // Counts total quotes
       totalQuotes = quotes.length;
 
@@ -46,9 +60,9 @@ jQuery (document).ready(function(){
 
       getQuote();
     }).call(this);
-    
+
     //end random text//
-    
+
     ////filter////
     $(document).ready(function(){
       $("#write").click(function(){
@@ -60,7 +74,7 @@ jQuery (document).ready(function(){
         $(".Designer").show();
       });
     });
-    
+
     $(document).ready(function(){
       $("#sh").click(function(){
         $(".long").hide();

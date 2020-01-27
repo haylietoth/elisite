@@ -35,11 +35,11 @@ app.use((req, res, next) => {
   });
 });
 
-// Query the site layout with every route 
+// Query the site layout with every route
 app.route('*').get((req, res, next) => {
   req.prismic.api.getSingle('menu')
   .then(function(menuContent){
-    
+
     // Define the layout content
     res.locals.menuContent = menuContent;
     next();
@@ -76,7 +76,7 @@ app.get('/preview', (req, res) => {
 app.get('/:uid', (req, res, next) => {
   // Store the param uid in a variable
   const uid = req.params.uid;
-  
+
     if (uid == 'action') {
       // Get a page by its uid
       req.prismic.api.getByUID("action", uid)
@@ -90,7 +90,21 @@ app.get('/:uid', (req, res, next) => {
       .catch((error) => {
         next(`error when retriving page ${error.message}`);
       });
-    }      
+    }
+    else if (uid == 'thoughts') {
+      // Get a page by its uid
+      req.prismic.api.getByUID("thoughts", uid)
+      .then((pageContent) => {
+        if (pageContent) {
+          res.render('thoughts', { pageContent });
+        } else {
+          res.status(404).render('404');
+        }
+      })
+      .catch((error) => {
+        next(`error when retriving page ${error.message}`);
+      });
+    }
     else {
       // Get a page by its uid
       req.prismic.api.getByUID("page", uid)
@@ -105,7 +119,7 @@ app.get('/:uid', (req, res, next) => {
         next(`error when retriving page ${error.message}`);
       });
     }
-}); 
+});
 
 /*
  * Homepage route

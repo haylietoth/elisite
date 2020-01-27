@@ -19,6 +19,9 @@ module.exports = {
     if (doc.type == 'action') {
         return '/' + doc.uid;
     }
+    if (doc.type == 'thoughts') {
+        return '/' + doc.uid;
+    }
     return '/';
   }
 };
