@@ -1,6 +1,7 @@
-#site-footer.site-footer.closed
+if footerContent != null
+ #site-footer.site-footer.closed
   #info.info
-    .wrapper
+     .wrapper
             div.links
                 div.center
                     ul.navbar-nav
@@ -10,12 +11,9 @@
                             a(href='#' id="lg") long
             div.footer-desc
               p.footer-p1(class="short")
-                | Dirkelijah may not be, though spends time operating as, a writer, designer and fabricator.
+               != PrismicDOM.RichText.asText(footerContent.data.short_text)
               p.footer-p1(class="long")
-                | Dirkelijah communicates in written words, design and in fabrication. He is uninformed as to the nature of much of our surroundings. This, however, is not inhibiting him from a commentary which he rashly forms and in similar nature wishes to share. Dirkelijah cares a great deal about the message, the best messenger often ranges among written word, designed object or image. Messengers, who are not killed, write when thoughts and feelings seem to be carrie along best in words, or if forms put that feeling in your gut then they try to design that form, and may even build it in three dimensional space if this speaks a little clearer. When Dirk Elijah is the messenger, he may keep a thought as an image of some type when this seems clearest, though he often misreads communications and chooses the wrongs form, in which case lets all hope he realizes it and tries it in a different representation. Otherwise you may be left with an incomplete thought or feeling, or you may be left with no thought or feelings. This may not be the worst thing in the world as open space is rare these days in our collec-tive heads. But if the message was not ‘space’ then it is some form of a miss or failure. If this is the case for you,
-              br
+                != PrismicDOM.RichText.asText(footerContent.data.long_text)
               br
               p.footer-p1(style="display:block;")
-                | I combine my training in traditional graphic design with disciplines of personal interest which has expanded my work to include exhibition branding, object design and fabrication, environmental signage and other interdisciplinary projects. I find a varied field of exploration important for the ability to successfully accomplish whatever medium a project may naturally lead. Through research and experimentation, I seek what is essential to develop ways to clearly communicate and interact with our environment.
-
-
+                != PrismicDOM.RichText.asText(footerContent.data.general_text)

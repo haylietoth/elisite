@@ -37,11 +37,11 @@ app.use((req, res, next) => {
 
 // Query the site layout with every route
 app.route('*').get((req, res, next) => {
-  req.prismic.api.getSingle('menu')
-  .then(function(menuContent){
+  req.prismic.api.getSingle('footer')
+  .then(function(footerContent){
 
     // Define the layout content
-    res.locals.menuContent = menuContent;
+    res.locals.footerContent = footerContent;
     next();
   });
 });
