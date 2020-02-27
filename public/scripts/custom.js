@@ -4,7 +4,7 @@ jQuery (document).ready(function(){
         $('#info').click(function() {
             if($('#site-footer').hasClass('closed')) {
                 $('.navbar-collapse').removeClass('in');
-                $('#site-footer').animate({'top': '100px'}, 1000);
+                $('#site-footer').animate({'top': '80px'}, 1000);
                     $(this).delay(1000)
                            .queue(function () {
                                 $(this).addClass('material-icons').text('arrow_downward');
