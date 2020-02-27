@@ -297,6 +297,9 @@ a:hover {
   .navbar-nav {
     margin: 0 -15px !important;
   }
+  .site-header a {
+    padding-bottom: 15px!important;
+  }
   .project {
     padding-left: 5%;
     padding-right: 5%;
