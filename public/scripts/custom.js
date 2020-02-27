@@ -76,6 +76,7 @@ jQuery (document).ready(function(){
     });
 
     $(document).ready(function(){
+      $(".long").hide();
       $("#sh").click(function(){
         $(".long").hide();
         $(".short").show();
