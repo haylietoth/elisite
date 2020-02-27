@@ -225,6 +225,12 @@ a:hover {
 /* End Footer*/
 
 /* Media Queries */
+
+@media (min-width: 1500px) {
+  body {
+    font-size: calc(12px + 14.361*(100vw - 576px)/864) !important;
+  }
+}
 @media (max-width: 1024px) {
   .links li {
     display: inline-block;
