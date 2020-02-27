@@ -35,7 +35,9 @@
   font-size: 20px !important;
   background-color: white !important;
 }
-
+.container-fluid>.navbar-collapse, .navbar-collapse.in {
+  background-color: white !important;
+}
 a:hover {
   color: black !important;
   background-color: transparent !important;
@@ -50,6 +52,9 @@ a:hover {
 .navbar-toggle {
   border-color: #000 !important;
   border-radius: 2px !important;
+}
+.site-header a {
+  padding-bottom: 0!important;
 }
 .whitebar {
   background: white;
@@ -288,9 +293,6 @@ a:hover {
   }
   .links ul {
     border: 0;
-  }
-  .container-fluid>.navbar-collapse, .navbar-collapse.in {
-    background-color: white !important;
   }
   .navbar-nav {
     margin: 0 -15px !important;
