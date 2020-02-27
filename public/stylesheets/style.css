@@ -19,7 +19,7 @@
 /* Header */
 .site-header {
   height: 30px;
-  padding: 20px 50px;
+  padding: 15px 50px;
 }
 .site-header,
 .site-header a,
@@ -45,9 +45,7 @@ a:hover {
 .site-header a:hover {
   line-height: 3.6vmin;
 }
-.navbar-brand {
-  font-size: 30px !important;
-}
+
 .navbar-toggle .icon-bar {
   background-color: #000;
 }
@@ -60,7 +58,7 @@ a:hover {
   position: fixed;
   left: 0;
   right: 0;
-  height: 10rem;
+  height: 8rem;
   z-index: 100;
   border-bottom: 2px solid black;
 }
