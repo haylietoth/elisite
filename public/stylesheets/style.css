@@ -285,7 +285,8 @@ a:hover {
     font-size: 20px !important;
   }
   .test {
-    padding: 10rem 5rem 0 5rem;
+    padding: 15rem 3rem 0 3rem;
+    height: auto;
   }
   .col-sm-4 {
     width: 100% !important;
