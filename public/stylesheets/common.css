@@ -104,7 +104,11 @@ p {
   margin-bottom: 2rem;
 }
 
-img {
+img, video {
   max-width: 100%;
   width: 100%;
+}
+
+video {
+  margin-bottom: 10%;
 }
