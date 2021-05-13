@@ -22,6 +22,15 @@ module.exports = {
     if (doc.type == 'thoughts') {
         return '/' + doc.uid;
     }
+    if (doc.type == 'temp-home') {
+        return '/' + doc.uid;
+    }
+    if (doc.type == 'info') {
+        return '/' + doc.uid;
+    }
+    if (doc.type == 'slides') {
+        return '/' + doc.uid;
+    }
     return '/';
   }
 };

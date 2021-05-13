@@ -1,0 +1,33 @@
+extends ./layout.pug
+
+block prepend body
+  body.infopage(data-wio-id=pageContent.id)
+    include ./partials/temp-header.pug
+    div.info(style="position:absolute;z-index:0;")
+       .wrapper
+          div.links
+            div.center
+              ul.navbar-nav
+                li
+                  a(href='#' id="sh") short
+                li
+                  a(href='#' id="lg") long
+          div.footer-desc
+            p.footer-p1(class="short")
+             != PrismicDOM.RichText.asText(footerContent.data.short_text)
+            p.footer-p1(class="long")
+              != PrismicDOM.RichText.asText(footerContent.data.long_text)
+            br
+            p.footer-p1(style="display:block;")
+              != PrismicDOM.RichText.asText(footerContent.data.general_text)
+            div.info-row 
+              div.info-col
+                a(href="")
+                  | Show you care and give me a follow.
+              div.info-col 
+                a(href="")
+                  | No time to read the above? Contact me here.
+              div.info-col 
+                a(href="/thoughts")
+                  | Interested? Take a look at my past life. 
+              

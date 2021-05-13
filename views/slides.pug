@@ -1,0 +1,17 @@
+extends ./layout.pug
+
+block prepend body
+  body(data-wio-id=pageContent.id)
+    include ./partials/temp-header.pug
+
+    for slice in pageContent.data.body
+      case slice.slice_type
+        when 'slide'
+           each richTextItem, index in slice.items
+            - var project = PrismicDOM.RichText.asText(richTextItem.slide_color, ctx.linkResolver);
+             .section(style="background-color:"+project+";top:calc(100vh * "+index+");z-index:"+index+";")
+              .fixed
+               != PrismicDOM.RichText.asHtml(richTextItem.slide_text, ctx.linkResolver)
+    
+    
+    

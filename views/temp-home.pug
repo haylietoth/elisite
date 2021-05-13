@@ -1,0 +1,20 @@
+extends ./layout.pug
+
+block prepend body
+  body.homepage(data-wio-id=pageContent.id)
+
+    include ./partials/temp-header-home.pug
+    // Content Section
+    div.slides
+      for slice, index in pageContent.data.body
+        case slice.slice_type
+          when 'full_width_image'
+            if index == 0
+              div(data-index="0" class="slide current")  
+            else
+              div(data-index=index class="slide next") 
+                img(src=slice.primary.image.url)
+    div(id='clickarea-wrap')
+      div.left.clickarea(id='left-clickarea')
+      div.right.clickarea(id='right-clickarea')
+    include ./partials/footer.pug

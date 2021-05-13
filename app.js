@@ -105,6 +105,48 @@ app.get('/:uid', (req, res, next) => {
         next(`error when retriving page ${error.message}`);
       });
     }
+    else if (uid == 'slides') {
+      // Get a page by its uid
+      req.prismic.api.getByUID("slides", uid)
+      .then((pageContent) => {
+        if (pageContent) {
+          res.render('slides', { pageContent });
+        } else {
+          res.status(404).render('404');
+        }
+      })
+      .catch((error) => {
+        next(`error when retriving page ${error.message}`);
+      });
+    }
+    else if (uid == 'temp-home') {
+      // Get a page by its uid
+      req.prismic.api.getByUID("temp-home", uid)
+      .then((pageContent) => {
+        if (pageContent) {
+          res.render('temp-home', { pageContent });
+        } else {
+          res.status(404).render('404');
+        }
+      })
+      .catch((error) => {
+        next(`error when retriving page ${error.message}`);
+      });
+    }
+    else if (uid == 'info') {
+      // Get a page by its uid
+      req.prismic.api.getByUID("info", uid)
+      .then((pageContent) => {
+        if (pageContent) {
+          res.render('info', { pageContent });
+        } else {
+          res.status(404).render('404');
+        }
+      })
+      .catch((error) => {
+        next(`error when retriving page ${error.message}`);
+      });
+    }
     else {
       // Get a page by its uid
       req.prismic.api.getByUID("page", uid)

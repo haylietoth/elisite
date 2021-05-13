@@ -33,7 +33,7 @@
   color: black !important;
   letter-spacing: 1.0px !important;
   font-size: 20px !important;
-  background-color: white !important;
+  /* background-color: white !important; */
 }
 .container-fluid>.navbar-collapse, .navbar-collapse.in {
   background-color: white !important;
@@ -102,6 +102,7 @@ a:hover {
 .links li {
   position: relative;
   display: block;
+  width: 90px;
 }
 .links li a {
   position: relative;
@@ -218,7 +219,7 @@ a:hover {
   padding: 0px 10% 150px 10%;
   width: 100%;
   color: black;
-  background-color: #fff;
+  /* background-color: #fff; */
 }
 .wrapper {
   margin: 50px 0px;
