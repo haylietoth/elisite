@@ -200,4 +200,7 @@ nav {
   .info-row:after {
     padding: 3rem;
   }
+  .bottomnav {
+    padding: 17px 5px;
+  }
 }
