@@ -59,13 +59,13 @@ nav {
   text-decoration: none;
   font-size: 16px;
   /* line-height: 15px; */
-  background-size: 200.22% auto;
+  /* background-size: 200.22% auto;
   -webkit-background-size: 200.22% auto;
   -moz-background-size: 200.22% auto;
   background-position: -0% 0;
   background-image: linear-gradient(to right, rgba(255, 255, 255, 0) 50%, #f9b248   50%);
   transition: background-position 0.5s ease-out;
-  -webkit-transition: background-position 0.5s ease-out;
+  -webkit-transition: background-position 0.5s ease-out; */
 }
 .bottomnav a:hover {
  background-position: -99.99% 0;
