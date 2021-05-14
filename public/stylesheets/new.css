@@ -5,27 +5,7 @@ header {
 }
 nav {
   /* position: relative; */
-}
-.logo {
-  top: 30vh;
-  position: absolute;
-  padding: 0 100px;
-}
-.logo img {
-  width: 75%;
-}
-.logo-small {
-  top: 0 !important;
-  transition: 0.5s linear;
-  position: fixed;
-  padding-top: 20px;
-  padding-bottom: 20px;
-  z-index: 100;
-}
-.dirk-small img {
-  top: 0;
-  width: 20%;
-  transition: 0.5s linear;
+  z-index:1000;
 }
 #navigation {
   position: fixed;
@@ -37,6 +17,29 @@ nav {
   transition: 0.5s linear;
   z-index: 100;
 }
+.logo {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: top 0.5s linear;
+}
+.logo-small {
+  top: 50px !important;
+  transition: top 0.5s linear;
+  position: fixed;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  z-index: 100;
+}
+.logo img {
+  width: 100%;
+  transition: 0.5s linear;
+}
+.dirk-small img {
+  width: 200px;
+  transition: 0.5s linear;
+}
 .nav-arrow img {
   width: 45px;
   padding: 8px;
@@ -45,20 +48,14 @@ nav {
 .bottomnav {
   position: relative;
   overflow: hidden;
-  height: 100%;
-  display: block;
-  padding: 0 50px;
+  padding: 10px 50px;
   transition: 0.8s ease-out;
-}
-.centerY{
-  transform: translateY(25%);
 }
 .bottomnav a {
   float: left;
   color: black;
   text-align: center;
-  margin: 3px 16px;
-  padding: 5px;
+  padding: 3px 16px;
   text-decoration: none;
   font-size: 16px;
   /* line-height: 15px; */
@@ -86,8 +83,9 @@ nav {
 .bottomnav-right {
   float: right;
 }
+/* End Header */
 
-/* Home body*/
+/* Home */
 .homepage {
   background-color: #cae7ec;
   overflow: hidden;
@@ -96,17 +94,22 @@ nav {
   bottom: 0;
   left: 0;
   position: absolute;
+  opacity: 0;
   transition: opacity .5s;
   -webkit-transition: opacity .5s;
-  opacity: 0;
+  z-index: 0;
   overflow: hidden;
   pointer-events: none;
   right: 0;
   top: 0;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
 }
 .slide.current {
-  transition: opacity 1s;
+  transition: opacity 1;
   -webkit-transition: opacity 1s;
+  z-index: 50 !important;
   opacity: 1 !important;
 }
 .clickarea-wrap {
@@ -126,8 +129,9 @@ nav {
   right: 0;
   cursor: url(../images/RightArrow.png) 108 65, e-resize;
 }
+/* End Home */
 
-/* Info page */
+/* Info */
 #sh:hover, #lg:hover{
   text-decoration: none;
   font-family: 'Authentic-Sans-130', sans-serif;
@@ -135,28 +139,26 @@ nav {
 .infopage {
   background-color: #cae7ec;
 }
-
 .info-row {
   padding-top: 50px;
 }
-
 .info-row:after {
   content: "";
   display: table;
   clear: both;
 }
-
 .info-col {
   float: left;
   width: 33.33%;
+  padding: 0 2.5rem;
 }
-
 .info-col a {
   color: black;
   text-decoration: none;
 }
+/* End Info */
 
-/* Slides page */
+/* Slides */
 .section {
 	text-align: center;
 	position: absolute;
@@ -172,4 +174,30 @@ nav {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+/* End Slides */
+
+/* Soon */
+.soon {
+  font-size: 5rem;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: top 0.5s linear;
+}
+@media (max-width: 768px) {
+  .info-col {
+    width: 100%;
+    padding: 1rem 0;
+  }
+  .info-col a {
+    line-height: normal !important;
+  }
+  .info-row {
+    padding-top: 3rem;
+  }
+  .info-row:after {
+    padding: 3rem;
+  }
 }

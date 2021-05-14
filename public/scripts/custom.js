@@ -1,14 +1,13 @@
 jQuery (document).ready(function(){
   //hide
-  $(".bottomnav").css('bottom', '-50px');
-  if (window.location.href.indexOf("info") > -1) {
+  if (window.location.href.indexOf("info") > -1 ||
+      window.location.href.indexOf("slides") > -1 ||
+      window.location.href.indexOf("thoughts") > -1 ||
+      window.location.href.indexOf("soon") > -1) {
     $("#navigation").css('opacity', '1');
     // $("#logo").css('background-color', '#cae7ec');
   }
 
-  if (window.location.href.indexOf("slides") > -1) {
-    $("#navigation").css('opacity', '1');
-  }
 
   $( ".nav-default" ).mouseenter(function() {
     $(".nav-arrow").hide();
@@ -20,14 +19,8 @@ jQuery (document).ready(function(){
   });
 
   //new stuff
-  $('body').click(function() {
-    $('#dirk').addClass('dirk-small');
-    $('#logo').addClass('logo-small');
-    $("#navigation").css('opacity', '1');
-  });
 
   $('#left-clickarea').click(function() {
-    console.log("left click");
     //get current value
     var currentIndex = $('.current').attr('data-index');
     //remove current class
@@ -37,14 +30,21 @@ jQuery (document).ready(function(){
       var totalSlides = $(".slides div").length;
       var newIndex = totalSlides - 1;
       $('*[data-index="'+newIndex+'"]').addClass('current');
+        $('#dirk').addClass('dirk-small');
+        $('#logo').addClass('logo-small');
+        $("#navigation").css('opacity', '1');
     } else {
+      if (currentIndex == 1) {
+        $('#dirk').removeClass('dirk-small');
+        $('#logo').removeClass('logo-small');
+        $("#navigation").css('opacity', '0');
+      }
       var newIndex = Number(currentIndex) - 1;
       $('*[data-index="'+newIndex+'"]').addClass('current');
     }
   });
 
   $('#right-clickarea').click(function() {
-    console.log("right click");
     //get total slides
     var lastSlide = $(".slides div").length - 1;
     //get current value
@@ -54,9 +54,15 @@ jQuery (document).ready(function(){
     //add current to next div
     if(currentIndex == lastSlide) {
       $('*[data-index="0"]').addClass('current');
+      $('#dirk').removeClass('dirk-small');
+      $('#logo').removeClass('logo-small');
+      $("#navigation").css('opacity', '0');
     } else {
-    var newIndex = Number(currentIndex) + 1;
-    $('*[data-index="'+newIndex+'"]').addClass('current');
+      var newIndex = Number(currentIndex) + 1;
+      $('*[data-index="'+newIndex+'"]').addClass('current');
+      $('#dirk').addClass('dirk-small');
+      $('#logo').addClass('logo-small');
+      $("#navigation").css('opacity', '1');
     }
   });
 

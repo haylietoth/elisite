@@ -1,0 +1,8 @@
+extends ./layout.pug
+
+block prepend body
+  body(data-wio-id=pageContent.id)
+    include ./partials/temp-header.pug
+    .soon
+      | COMING SOON
+    

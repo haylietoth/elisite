@@ -147,6 +147,20 @@ app.get('/:uid', (req, res, next) => {
         next(`error when retriving page ${error.message}`);
       });
     }
+    else if (uid == 'soon') {
+      // Get a page by its uid
+      req.prismic.api.getByUID("soon", uid)
+      .then((pageContent) => {
+        if (pageContent) {
+          res.render('soon', { pageContent });
+        } else {
+          res.status(404).render('404');
+        }
+      })
+      .catch((error) => {
+        next(`error when retriving page ${error.message}`);
+      });
+    }
     else {
       // Get a page by its uid
       req.prismic.api.getByUID("page", uid)
@@ -167,10 +181,10 @@ app.get('/:uid', (req, res, next) => {
  * Homepage route
  */
 app.get('/', (req, res, next) => {
-  req.prismic.api.getSingle("homepage")
+  req.prismic.api.getSingle("temp-home")
   .then((pageContent) => {
     if (pageContent) {
-      res.render('homepage', { pageContent });
+      res.render('temp-home', { pageContent });
     } else {
       res.status(404).send('Could not find a homepage document. Make sure you create and publish a homepage document in your repository.');
     }

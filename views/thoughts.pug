@@ -3,10 +3,10 @@ extends ./layout.pug
 block prepend body
   body(data-wio-id=pageContent.id)
 
-    include ./partials/header.pug
+    include ./partials/temp-header.pug
 
     // Content Section
-    div.container(style='padding-top:140px;')
+    div.container(style='padding-top:140px;position:absolute;z-index:0;')
      div.thoughts-row
        //- Display the slices
        for slice in pageContent.data.body

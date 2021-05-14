@@ -31,6 +31,9 @@ module.exports = {
     if (doc.type == 'slides') {
         return '/' + doc.uid;
     }
-    return '/';
+    if (doc.type == 'soon') {
+        return '/coming-soon';
+    }
+    // return '/';
   }
 };

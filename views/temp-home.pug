@@ -7,13 +7,14 @@ block prepend body
     // Content Section
     div.slides
       for slice, index in pageContent.data.body
+        - var length = pageContent.data.body.length;
         case slice.slice_type
           when 'full_width_image'
+            - var zindex = length - index;
             if index == 0
-              div(data-index="0" class="slide current")  
+              div(data-index="0" class="slide current" style="z-index:"+zindex+";")  
             else
-              div(data-index=index class="slide next") 
-                img(src=slice.primary.image.url)
+              div(data-index=index class="slide next" style="z-index:"+zindex+";background-image: url("+slice.primary.image.url+");") 
     div(id='clickarea-wrap')
       div.left.clickarea(id='left-clickarea')
       div.right.clickarea(id='right-clickarea')
