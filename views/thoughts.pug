@@ -21,4 +21,3 @@ block prepend body
              div.thoughts-column
                each richTextItem in slice.items
                    != PrismicDOM.RichText.asHtml(richTextItem.right_column, ctx.linkResolver)
-     include ./partials/footer.pug

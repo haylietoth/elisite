@@ -16,56 +16,6 @@
 }
 /* End General */
 
-/* Header */
-.site-header {
-  height: 30px;
-  padding: 15px 50px;
-}
-.site-header,
-.site-header a,
-.links,
-.links a {
-  color: black;
-  letter-spacing: 1.0px;
-  font-size: 20px;
-}
-.navbar-nav>li>a:focus {
-  color: black !important;
-  letter-spacing: 1.0px !important;
-  font-size: 20px !important;
-  /* background-color: white !important; */
-}
-.container-fluid>.navbar-collapse, .navbar-collapse.in {
-  background-color: white !important;
-}
-a:hover {
-  color: black !important;
-  background-color: transparent !important;
-}
-.site-header a:hover {
-  line-height: 3.6vmin;
-}
-
-.navbar-toggle .icon-bar {
-  background-color: #000;
-}
-.navbar-toggle {
-  border-radius: 2px !important;
-}
-.site-header a {
-  padding-bottom: 0!important;
-}
-.whitebar {
-  background: white;
-  position: fixed;
-  left: 0;
-  right: 0;
-  height: 8rem;
-  z-index: 100;
-  border-bottom: 2px solid black;
-}
-/* End Header */
-
 /* Homepage */
 .test {
   height: 100vh;
@@ -173,61 +123,6 @@ a:hover {
   padding-top: 100px;
 }
 /* End Project Page */
-
-/* Thoughts Page*/
-.thoughts-row {
-  display: -ms-flexbox; /* IE10 */
-  display: flex;
-  -ms-flex-wrap: wrap; /* IE10 */
-  flex-wrap: wrap;
-  padding: 0 2rem;
-}
-
-.thoughts-column {
-  -ms-flex: 33.33%; /* IE10 */
-  flex: 33.33%;
-  max-width: 33.33%;
-  padding: 1rem;
-}
-
-.block-img {
-  margin-bottom: 2rem;
-}
-/* End Thoughts Page*/
-
-/* Footer */
-.site-footer {
-  width: 100%;
-  top: 1500px;
-  bottom: 0px;
-  position: fixed;
-  /*display:none;*/
-  overflow-y: scroll;
-  background-color: #fff;
-  z-index: 10;
-  text-align: center;
-}
-#site-footer a {
-  color: black;
-  text-decoration: none;
-  font-size: 20px;
-}
-#site-footer a:hover {
-  text-decoration: underline;
-}
-.info {
-  padding: 0px 10% 150px 10%;
-  width: 100%;
-  color: black;
-  /* background-color: #fff; */
-}
-.wrapper {
-  margin: 50px 0px;
-}
-.footer-desc p:not(:nth-last-child(1)) {
-  padding-top: 30px;
-}
-/* End Footer*/
 
 /* Media Queries */
 

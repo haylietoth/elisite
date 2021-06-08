@@ -3,7 +3,7 @@ extends ./layout.pug
 block prepend body
   body.infopage(data-wio-id=pageContent.id)
     include ./partials/temp-header.pug
-    div.info(style="position:absolute;z-index:0;")
+    div.info
        .wrapper
           div.links
             div.center
@@ -12,24 +12,33 @@ block prepend body
                   a(href='#' id="sh") short
                 li
                   a(href='#' id="lg") long
-          div.footer-desc
-            p.footer-p1(class="short")
+          div.info-details
+            p.short
              != PrismicDOM.RichText.asText(pageContent.data.short_text)
-            p.footer-p1(class="long")
+            p.long
               != PrismicDOM.RichText.asText(pageContent.data.long_text)
             br
-            p.footer-p1(style="display:block;")
+            p.info-p2(style="display:block;")
               != PrismicDOM.RichText.asText(pageContent.data.general_text)
-            div.info-row 
-              div.info-col
-                - var instaLink = PrismicDOM.RichText.asText(pageContent.data.insta_link)
-                a(href=instaLink)
-                  | Show you care and give me a follow.
-              div.info-col 
+          div.info-box 
+            div.info-wrap
+              div.info-img
+                img(src="../images/Letter.png")
+              div.info-link
                 - var contactLink = PrismicDOM.RichText.asText(pageContent.data.contact_link)
                 a(href="mailto:"+contactLink)
                   | No time to read the above? Contact me here.
-              div.info-col 
+            div.info-wrap
+              div.info-img.middle
+                img(src="../images/Instagram.png")
+              div.info-link
+                - var instaLink = PrismicDOM.RichText.asText(pageContent.data.insta_link)
+                a(href=instaLink)
+                  | Show you care, and give me a follow.
+            div.info-wrap
+              div.info-img
+                img(src="../images/PastLife.png")
+              div.info-link
                 a(href="/thoughts")
                   | Interested? Take a look at my past life. 
               

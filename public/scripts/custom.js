@@ -1,22 +1,15 @@
 jQuery (document).ready(function(){
+  $('.info-p2').html(function (index, text) {
+    this.innerHTML = text.replace("dirkelijah@gmail.com", "<span><img src='../images/Email_Link.png'></span>")
+  });
   //hide
   if (window.location.href.indexOf("info") > -1 ||
       window.location.href.indexOf("slides") > -1 ||
       window.location.href.indexOf("thoughts") > -1 ||
       window.location.href.indexOf("soon") > -1) {
-    $("#navigation").css('opacity', '1');
+        $("#navigation").css('opacity', '1');
     // $("#logo").css('background-color', '#cae7ec');
   }
-
-
-  $( ".nav-default" ).mouseenter(function() {
-    $(".nav-arrow").hide();
-    $(".bottomnav").css('bottom', '0');
-  });
-  $( ".nav-default" ).mouseleave(function() {
-    $(".nav-arrow").show();
-    $(".bottomnav").css('bottom', '-50px');
-  });
 
   //new stuff
 
