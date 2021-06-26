@@ -26,11 +26,13 @@ jQuery (document).ready(function(){
         $('#dirk').addClass('dirk-small');
         $('#logo').addClass('logo-small');
         $("#navigation").css('opacity', '1');
+        $("#slides").css('opacity', '0');
     } else {
       if (currentIndex == 1) {
         $('#dirk').removeClass('dirk-small');
         $('#logo').removeClass('logo-small');
         $("#navigation").css('opacity', '0');
+        $("#slides").css('opacity', '1');
       }
       var newIndex = Number(currentIndex) - 1;
       $('*[data-index="'+newIndex+'"]').addClass('current');
@@ -50,12 +52,14 @@ jQuery (document).ready(function(){
       $('#dirk').removeClass('dirk-small');
       $('#logo').removeClass('logo-small');
       $("#navigation").css('opacity', '0');
+      $("#slides").css('opacity', '1');
     } else {
       var newIndex = Number(currentIndex) + 1;
       $('*[data-index="'+newIndex+'"]').addClass('current');
       $('#dirk').addClass('dirk-small');
       $('#logo').addClass('logo-small');
       $("#navigation").css('opacity', '1');
+      $("#slides").css('opacity', '0');
     }
   });
 
@@ -84,17 +88,17 @@ jQuery (document).ready(function(){
     $('body').css('display','none');
     $('body').fadeIn(500);
 
-    $(document).on("click", "a", function () {
-        var newUrl = $(this).attr("href");
-        if (!newUrl || newUrl[0] === "#") {
-            location.hash = newUrl;
-            return;
-        }
-        $("html").fadeOut(function () {
-            location = newUrl;
-        });
-        return false;
-    });
+    // $(document).on("click", "a", function () {
+    //     var newUrl = $(this).attr("href");
+    //     if (!newUrl || newUrl[0] === "#") {
+    //         location.hash = newUrl;
+    //         return;
+    //     }
+    //       $("html").fadeOut(function () {
+    //           location = newUrl;
+    //       });
+    //     return false;
+    // });
     //random quote
     (function() {
       var quote = document.getElementsByClassName("quotes");
