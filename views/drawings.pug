@@ -1,0 +1,11 @@
+extends ./layout.pug
+
+block prepend body
+  body(data-wio-id=pageContent.id)
+    include ./partials/temp-header.pug
+    div.drawing-board
+      for item, i in pageContent.data.drawings
+        if item.drawing && item.drawing.url
+          div.drawing
+          
+              img(src=item.drawing.url, alt=item.drawing.alt)

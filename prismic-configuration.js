@@ -34,6 +34,9 @@ module.exports = {
     if (doc.type == 'soon') {
         return '/coming-soon';
     }
+    if (doc.type == 'drawings') {
+        return '/drawings';
+    }
     // return '/';
   }
 };

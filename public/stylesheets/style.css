@@ -52,15 +52,15 @@
 .links li {
   position: relative;
   display: block;
-  width: 90px;
+  padding: 10px 15px;
 }
 .links li a {
   position: relative;
   display: block;
-  padding: 10px 15px;
 }
 .links a:focus, .links a:active {
-  text-decoration: underline;
+  text-decoration: none;
+  border-bottom: 1px solid black;
 }
 .links li:first-child::after {
   position: absolute;
@@ -175,10 +175,6 @@
     flex: 100%;
     max-width: 100%;
     padding: 1rem;
-  }
-
-  body {
-    font-size: 20px !important;
   }
   .test {
     padding: 15rem 3rem 0 3rem;
