@@ -334,16 +334,20 @@ a:hover {
 
 @media screen and (max-width: 560px) {
   .logo-small {
-    top: 42px !important;
+    top: 36px !important;
   }
-
+  .dirk-small img {
+    width: 125px;
+  }
   nav #navigation a,
   div.lower-middle {
     font-size: 11px;
   }
-
   .lower-left {
     padding: 0 0 25px 25px;
+  }
+  .lower-middle {
+    padding-bottom: 25px;
   }
   .lower-right {
     padding: 0 25px 25px 0;
