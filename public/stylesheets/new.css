@@ -333,10 +333,7 @@ a:hover {
 
 @media (max-width: 560px) {
   .logo-small {
-    top: 27px !important;
-  }
-  .dirk-small img {
-    width: 125px;
+    top: 28px !important;
   }
   nav #navigation a,
   div.lower-middle {
