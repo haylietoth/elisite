@@ -18,7 +18,7 @@ div.lower-middle {
   font-family: 'fieldwork', sans-serif !important;
   text-transform: uppercase;
   font-size: 16px;
-  color: black;
+  color: #15202B;
 }
 #navigation a:hover{
   text-decoration: none;
@@ -133,22 +133,22 @@ div.lower-middle {
 }
 .links,
 .links a {
-  color: black;
+  color: #15202B;
   letter-spacing: 1.0px;
   font-size: 16px;
 }
 .navbar-nav>li>a:focus {
-  color: black !important;
+  color: #15202B !important;
   letter-spacing: 1.0px !important;
   /* background-color: white !important; */
 }
 a:hover {
-  color: black !important;
+  color: #15202B !important;
   background-color: transparent !important;
 }
 #sh:hover, #lg:hover{
   text-decoration: none;
-  /* border-bottom: 1px solid black; */
+  /* border-bottom: 1px solid #15202B; */
 }
 .info {
   margin: auto;
@@ -178,13 +178,13 @@ a:hover {
 }
 .info-p2 a {
   font-family: 'fieldwork-bold', sans-serif !important;
-  color: black;
+  color: #15202B;
   text-decoration: none;
   line-height: 22.85px;
 }
 .info-p2 a:hover {
   text-decoration: none;
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid #15202B;
 }
 
 .info-box {
@@ -331,7 +331,7 @@ a:hover {
 @media (max-width: 560px) {
   .logo-small {
     top: 28px !important;
-    left: 43% !important;
+    left: 44% !important;
   }
   nav #navigation a,
   div.lower-middle {

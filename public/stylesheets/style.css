@@ -60,7 +60,7 @@
 }
 .links a:focus, .links a:active {
   text-decoration: none;
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid #15202B;
 }
 .links li:first-child::after {
   position: absolute;
@@ -68,7 +68,7 @@
   width: 2px;
   height: 45%;
   right: 0;
-  background: black;
+  background: #15202B;
   top: 50%;
   transform: translate(0, -50%);
 }
