@@ -331,7 +331,7 @@ a:hover {
   }
 }
 
-@media screen and (max-width: 560px) {
+@media (max-width: 560px) {
   .logo-small {
     top: 29px !important;
   }
