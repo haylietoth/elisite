@@ -59,7 +59,7 @@ jQuery (document).ready(function(){
     const board = document.querySelector(".drawing-board");
     if (!board) return;
 
-    // Clear old layout values if needed
+    // clear old layout 
     cards.forEach(c => {
       c.style.top = "";
       c.style.left = "";
@@ -67,25 +67,22 @@ jQuery (document).ready(function(){
       c.style.zIndex = "";
     });
 
-    // ====== Tuning knobs ======
-    // 50% smaller than native => multiply by 0.5
-    const scaleTwoUp = 0.5;
-    const scaleOneUp = 0.5;
+    // make images half as large as originally provided
+    const scale = 0.5;
 
-    // Cap rendered width
+    // max width is 400px for now
     const maxCardWidthPx = 400;
 
-    const leftTwoLeft = 5;     // still expressed in % of board width
+    const leftTwoLeft = 5;
     const leftTwoRight = 52.5;
-    const leftOneCentered = 22.5;
+    let leftOneCentered = 22.5;
 
-    const topStart = 2.5; // percent
-    const rowHeight = 28; // percent
+    const topStart = 2.5;
+    let rowHeight = 20;
 
     const n = cards.length;
 
-    // Decide how many "rows" we will have for N cards with the pattern:
-    // row0: 2 cards, row1: 1 card, row2: 2 cards, row3: 1 card, ...
+    // 2, 1, 2, 1 patterning for each row's columns
     let rows = 0;
     let i = 0;
     while (i < n) {
@@ -94,61 +91,76 @@ jQuery (document).ready(function(){
       rows++;
     }
 
-    // Convert percent-based vertical scheme into an actual height.
+    // set height for parent div
     const pxPerRow = 420;
-    const paddingBottom = 200;
+    const paddingBottom = 0;
     board.style.height = `${topStart * 0 + rows * pxPerRow + paddingBottom}px`;
 
-    // ---- helper: get "native" width in px ----
-    // For <img>, naturalWidth is ideal.
-    // For other elements, we'll fall back to current rendered width.
+    // get "native" width in px
     function getNativeWidthPx(el) {
-      // If it's an <img>, prefer naturalWidth
       const img = el.tagName === "IMG" ? el : el.querySelector?.("img");
       if (img && img.naturalWidth) return img.naturalWidth;
 
-      // Fallback: if it's already rendered, use its current pixel width
+      // if it's already rendered, use its current pixel width
       const rect = el.getBoundingClientRect();
       return rect.width || 0;
     }
 
-    // Precompute widths once (so repeated measurements aren't needed)
-    // We’ll set:
-    // - two-up cards: 50% smaller than native, max 400px
-    // - one-up cards: 50% smaller than native, max 400px
-    const widthPx = (el) => Math.min(getNativeWidthPx(el) * scaleTwoUp, maxCardWidthPx);
+    // set image widths once (so repeated measurements aren't needed)
+    const widthPx = (el) => Math.min(getNativeWidthPx(el) * scale, maxCardWidthPx);
 
     let cardIndex = 0;
 
     for (let rowIndex = 0; rowIndex < rows; rowIndex++) {
       const isTwoUp = (rowIndex % 2 === 0);
-      const topPct = topStart + rowIndex * rowHeight;
+      const prevCard = cards[cardIndex - 1]; // previous card
+      const prevHeight = prevCard ? prevCard.offsetHeight : 0;
+
+      // if the image is quite large, add some to the rowHeight
+      if (prevHeight > 500) {
+        rowHeight = 26;
+      }
+
+      let topPct = topStart + rowIndex * rowHeight;
 
       if (isTwoUp) {
         if (cards[cardIndex]) {
+          let tempTopPct = topPct;
+          if (rowIndex % 4 !== 0) {
+            tempTopPct = topPct + 5;
+          }
           setCard(cards[cardIndex], {
             widthPx: widthPx(cards[cardIndex]),
             leftPct: leftTwoLeft,
-            topPct,
-            z: 100 + (n - cardIndex)
+            topPct: tempTopPct,
+            z: 100 + (cardIndex)
           });
         }
         if (cards[cardIndex + 1]) {
+          let tempTopPct = topPct;
+          if (rowIndex % 4 === 0) {
+            tempTopPct = topPct + 5;
+          }
           setCard(cards[cardIndex + 1], {
             widthPx: widthPx(cards[cardIndex + 1]),
             leftPct: leftTwoRight,
-            topPct,
-            z: 100 + (n - (cardIndex + 1))
+            topPct: tempTopPct,
+            z: 100 + (cardIndex + 1)
           });
         }
         cardIndex += 2;
       } else {
         if (cards[cardIndex]) {
+          let tempLeftOneCentered = leftOneCentered;
+          if ((rowIndex - 1) % 4 !== 0) {
+            tempLeftOneCentered = leftOneCentered + 10;
+          }
+
           setCard(cards[cardIndex], {
             widthPx: widthPx(cards[cardIndex]),
-            leftPct: leftOneCentered,
-            topPct,
-            z: 100 + (n - cardIndex)
+            leftPct: tempLeftOneCentered,
+            topPct: topPct,
+            z: 100 + (cardIndex)
           });
         }
         cardIndex += 1;
@@ -162,8 +174,6 @@ jQuery (document).ready(function(){
     el.style.top = `${topPct}%`;
     el.style.zIndex = String(z);
   }
-
-
 
   //hide
   if (window.location.href.indexOf("info") > -1 ||

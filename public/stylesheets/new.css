@@ -242,7 +242,6 @@ a:hover {
   position: relative;
 }
 .drawing img {
-  cursor: move;
   display: block;
   width: 100%;
   max-width: 400px;
@@ -258,7 +257,6 @@ a:hover {
   }
 
   .drawing {
-    cursor: default;
     position: relative;
     left: 50% !important;
     top: auto !important;
@@ -300,6 +298,12 @@ a:hover {
 @media screen and (min-width: 1024px) {
   .short, .info-p2 {
     padding: 0 7em;
+  }
+}
+
+@media screen and (min-width: 769px) {
+  .drawing img {
+    cursor: move;
   }
 }
 
