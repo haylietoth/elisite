@@ -37,12 +37,12 @@ div.lower-middle {
   z-index: 100;
 }
 .logo img {
-  width: 400px;
+  width: 300px;
   transition: 0.5s linear;
   padding: 5.85px 0;
 }
 .dirk-small img {
-  width: 200px;
+  width: 130px;
   transition: 0.5s linear;
 }
 .upper-left {
@@ -70,7 +70,7 @@ div.lower-middle {
   width: 100%;
   padding-bottom: 30px;
   z-index: -1;
-  line-height: 31.4333px;
+  line-height: 4vmin;
 }
 .lower-right {
   position: fixed;
@@ -161,11 +161,11 @@ a:hover {
   margin-top: 75px;
 }
 .info-details {
+  font-size: 13px;
   text-align: center;
   padding: 3rem 150px 0;
   max-width: 1200px;
   margin: auto;
-  text-transform: uppercase;
 }
 .short {
   margin: auto;
@@ -335,6 +335,11 @@ a:hover {
 @media screen and (max-width: 560px) {
   .logo-small {
     top: 42px !important;
+  }
+
+  nav #navigation a,
+  div.lower-middle {
+    font-size: 11px;
   }
 }
 
