@@ -31,7 +31,7 @@ div.lower-middle {
   transition: top 0.5s linear;
 }
 .logo-small {
-  top: 45px !important;
+  top: 43px !important;
   transition: top 0.5s linear;
   position: fixed;
   z-index: 100;
