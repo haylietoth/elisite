@@ -127,7 +127,7 @@ jQuery (document).ready(function(){
         if (cards[cardIndex]) {
           let tempTopPct = topPct;
           if (rowIndex % 4 !== 0) {
-            tempTopPct = topPct + 5;
+            tempTopPct = topPct + 7;
           }
           setCard(cards[cardIndex], {
             widthPx: widthPx(cards[cardIndex]),
