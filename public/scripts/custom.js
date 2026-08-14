@@ -3,6 +3,8 @@ jQuery (document).ready(function(){
     this.innerHTML = text.replace("dirkelijah@gmail.com", "<a href='mailto:dirkelijah@gmail.com'>dirkelijah@gmail.com</a>")
   });
 
+
+
   //drag drawing photos
   // Make the DIV element draggable:
   if (window.location.pathname === "/drawings") {
@@ -65,25 +67,25 @@ jQuery (document).ready(function(){
       c.style.zIndex = "";
     });
 
-    // Tuning knobs (edit to match the look)
-    const cardWidthTwoUp = 33;
+    // ====== Tuning knobs ======
+    // 50% smaller than native => multiply by 0.5
+    const scaleTwoUp = 0.5;
+    const scaleOneUp = 0.5;
 
-    // Single rows centered and wider (you asked centered)
-    // Adjust this as you like; 95-ish makes it “one card row” feel right.
-    const cardWidthOneUp = 95;
+    // Cap rendered width
+    const maxCardWidthPx = 400;
 
-    const leftTwoLeft = 5;
+    const leftTwoLeft = 5;     // still expressed in % of board width
     const leftTwoRight = 52.5;
-    const leftOneCentered = 2.5; // centered with width=95 (2.5 + 95 + 2.5 = 100)
+    const leftOneCentered = 22.5;
 
-    // Vertical layout expressed as percent-of-board-height.
-    // Because we’re going to set board height from these rows, this will behave consistently.
-    const topStart = 2.5;   // percent
-    const rowHeight = 28;   // percent
+    const topStart = 2.5; // percent
+    const rowHeight = 28; // percent
+
+    const n = cards.length;
 
     // Decide how many "rows" we will have for N cards with the pattern:
     // row0: 2 cards, row1: 1 card, row2: 2 cards, row3: 1 card, ...
-    const n = cards.length;
     let rows = 0;
     let i = 0;
     while (i < n) {
@@ -93,17 +95,29 @@ jQuery (document).ready(function(){
     }
 
     // Convert percent-based vertical scheme into an actual height.
-    // We pick a pixel baseline per row so the board feels "natural" and scales.
-    // Change this baseline to tune overall spacing.
-    const pxPerRow = 420; // <- key knob; increase for more breathing room
-
-    // Set board height based on required rows.
-    // Add some padding so the last row doesn't clip.
+    const pxPerRow = 420;
     const paddingBottom = 200;
     board.style.height = `${topStart * 0 + rows * pxPerRow + paddingBottom}px`;
 
-    // Now place cards using percent tops relative to the board height we just set.
-    // (Because board height is fixed in pixels now, percent translates deterministically.)
+    // ---- helper: get "native" width in px ----
+    // For <img>, naturalWidth is ideal.
+    // For other elements, we'll fall back to current rendered width.
+    function getNativeWidthPx(el) {
+      // If it's an <img>, prefer naturalWidth
+      const img = el.tagName === "IMG" ? el : el.querySelector?.("img");
+      if (img && img.naturalWidth) return img.naturalWidth;
+
+      // Fallback: if it's already rendered, use its current pixel width
+      const rect = el.getBoundingClientRect();
+      return rect.width || 0;
+    }
+
+    // Precompute widths once (so repeated measurements aren't needed)
+    // We’ll set:
+    // - two-up cards: 50% smaller than native, max 400px
+    // - one-up cards: 50% smaller than native, max 400px
+    const widthPx = (el) => Math.min(getNativeWidthPx(el) * scaleTwoUp, maxCardWidthPx);
+
     let cardIndex = 0;
 
     for (let rowIndex = 0; rowIndex < rows; rowIndex++) {
@@ -113,7 +127,7 @@ jQuery (document).ready(function(){
       if (isTwoUp) {
         if (cards[cardIndex]) {
           setCard(cards[cardIndex], {
-            widthPct: cardWidthTwoUp,
+            widthPx: widthPx(cards[cardIndex]),
             leftPct: leftTwoLeft,
             topPct,
             z: 100 + (n - cardIndex)
@@ -121,7 +135,7 @@ jQuery (document).ready(function(){
         }
         if (cards[cardIndex + 1]) {
           setCard(cards[cardIndex + 1], {
-            widthPct: cardWidthTwoUp,
+            widthPx: widthPx(cards[cardIndex + 1]),
             leftPct: leftTwoRight,
             topPct,
             z: 100 + (n - (cardIndex + 1))
@@ -131,7 +145,7 @@ jQuery (document).ready(function(){
       } else {
         if (cards[cardIndex]) {
           setCard(cards[cardIndex], {
-            widthPct: cardWidthOneUp,
+            widthPx: widthPx(cards[cardIndex]),
             leftPct: leftOneCentered,
             topPct,
             z: 100 + (n - cardIndex)
@@ -142,22 +156,13 @@ jQuery (document).ready(function(){
     }
   }
 
-  function setCard(el, { widthPct, leftPct, topPct, z }) {
-    el.style.width = `${widthPct}%`;
+  function setCard(el, { widthPx, leftPct, topPct, z }) {
+    el.style.width = `${widthPx}px`;
     el.style.left = `${leftPct}%`;
     el.style.top = `${topPct}%`;
     el.style.zIndex = String(z);
   }
 
-  function setCard(el, { widthPct, leftPct, topPct, z }) {
-    el.style.width = `${widthPct}%`;
-    el.style.left = `${leftPct}%`;
-    el.style.top = `${topPct}%`;
-    el.style.zIndex = String(z);
-
-    // Important: keep it responsive if you previously set width/height elsewhere
-    el.style.height = "auto";
-  }
 
 
   //hide

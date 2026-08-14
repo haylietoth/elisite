@@ -6,6 +6,6 @@ block prepend body
     div.drawing-board
       for item, i in pageContent.data.drawings
         if item.drawing && item.drawing.url
-          div.drawing
-          
-              img(src=item.drawing.url, alt=item.drawing.alt)
+          div.drawing-container
+            div.drawing
+                img(src=item.drawing.url, alt=item.drawing.alt)

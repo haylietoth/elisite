@@ -39,7 +39,6 @@ div.lower-middle {
 .logo img {
   width: 300px;
   transition: 0.5s linear;
-  padding: 5.85px 0;
 }
 .dirk-small img {
   width: 130px;
@@ -236,7 +235,6 @@ a:hover {
 }
 .drawing { 
   position: absolute;
-  cursor: move;
   /* you will set top/left/width/z-index per card */
 }
 .drawing-image {
@@ -244,6 +242,7 @@ a:hover {
   position: relative;
 }
 .drawing img {
+  cursor: move;
   display: block;
   width: 100%;
   max-width: 400px;
@@ -254,22 +253,16 @@ a:hover {
 @media (max-width: 767.9999px){
   .drawing-board {
     padding-top: 3rem;
+    padding-bottom: 5rem;
     height: fit-content !important;
   }
 
-  .drawing{
+  .drawing {
     cursor: default;
     position: relative;
     left: 50% !important;
     top: auto !important;
     transform: translateX(-50%);
-    width: 100% !important; /* or a smaller % if you prefer margins */
-    z-index: auto !important;
-  }
-
-  .drawing img {
-    width: fit-content;
-    padding: 5rem 0;
   }
 }
 /* End Drawings */
