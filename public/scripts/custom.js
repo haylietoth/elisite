@@ -170,7 +170,6 @@ jQuery (document).ready(function(){
     el.style.width = `${widthPx}px`;
     el.style.left = `${leftPct}%`;
     el.style.top = `${topPct}%`;
-    el.style.zIndex = String(z);
   }
 
   //hide
