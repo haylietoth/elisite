@@ -147,6 +147,20 @@ app.get('/:uid', (req, res, next) => {
         next(`error when retriving page ${error.message}`);
       });
     }
+    else if (uid == 'drawings') {
+      // Get a page by its uid
+      req.prismic.api.getByUID("drawings", uid)
+      .then((pageContent) => {
+        if (pageContent) {
+          res.render('drawings', { pageContent });
+        } else {
+          res.status(404).render('404');
+        }
+      })
+      .catch((error) => {
+        next(`error when retriving page ${error.message}`);
+      });
+    }
     else if (uid == 'soon') {
       // Get a page by its uid
       req.prismic.api.getByUID("soon", uid)

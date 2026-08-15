@@ -2,7 +2,6 @@
 header {
   margin: 20px 0;
   overflow: hidden;
-  cursor: pointer;
 }
 nav {
   /* position: relative; */
@@ -14,11 +13,12 @@ nav {
   position: absolute;
   z-index: 100;
 }
-#navigation a{
-  font-family: 'Soehne-Web', sans-serif !important;
-  font-weight: bold;
-  font-size: 16px;
-  color: black;
+#navigation a,
+div.lower-middle {
+  font-family: 'fieldwork', sans-serif !important;
+  text-transform: uppercase;
+  font-size: 11px;
+  color: #15202B;
 }
 #navigation a:hover{
   text-decoration: none;
@@ -31,19 +31,17 @@ nav {
   transition: top 0.5s linear;
 }
 .logo-small {
-  top: 50px !important;
+  top: 39px !important;
   transition: top 0.5s linear;
   position: fixed;
-  padding-top: 20px;
-  padding-bottom: 20px;
   z-index: 100;
 }
 .logo img {
-  width: 100%;
+  width: 300px;
   transition: 0.5s linear;
 }
 .dirk-small img {
-  width: 200px;
+  width: 130px;
   transition: 0.5s linear;
 }
 .upper-left {
@@ -64,6 +62,14 @@ nav {
 	bottom: 0%;
 	left: 0;
 }
+.lower-middle {
+  position: fixed;
+  bottom: 0;
+  margin: auto 0;
+  width: 100%;
+  padding-bottom: 30px;
+  z-index: -1;
+}
 .lower-right {
   position: fixed;
   padding: 0 30px 30px 0;
@@ -74,7 +80,7 @@ nav {
 
 /* Home */
 .homepage {
-  background-color: #a1c9dc;
+  background-color: #94afc2;
   overflow: hidden;
 }
 .slide {
@@ -110,47 +116,50 @@ nav {
 }
 .left {
   left: 0;
-  cursor: url(../images/LeftArrow.png) 108 65, w-resize;
+  cursor: url(../images/Prev.svg) 108 65, w-resize;
 }
 .right {
   right: 0;
-  cursor: url(../images/RightArrow.png) 108 65, e-resize;
+  cursor: url(../images/Next.svg) 108 65, e-resize;
 }
 /* End Home */
 
 /* Info */
 .infopage {
-  background-color: #a1c9dc;
+  background-color: #94afc2;
+}
+.links {
+  padding-top: 3rem;
 }
 .links,
 .links a {
-  color: black;
+  color: #15202B;
   letter-spacing: 1.0px;
-  font-size: 20px;
+  font-size: 11px;
 }
 .navbar-nav>li>a:focus {
-  color: black !important;
+  color: #15202B !important;
   letter-spacing: 1.0px !important;
-  font-size: 20px !important;
   /* background-color: white !important; */
 }
 a:hover {
-  color: black !important;
+  color: #15202B !important;
   background-color: transparent !important;
 }
 #sh:hover, #lg:hover{
   text-decoration: none;
-  font-family: 'Authentic-Sans-130', sans-serif;
+  /* border-bottom: 1px solid #15202B; */
 }
 .info {
-  margin: auto;
+  overflow: hidden;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   width: 100%;
-  padding-top: 2.5rem;
-}
-.wrapper {
-  margin-top: 75px;
 }
 .info-details {
+  font-size: 13px;
   text-align: center;
   padding: 3rem 150px 0;
   max-width: 1200px;
@@ -167,13 +176,19 @@ a:hover {
   margin: auto;
   width: 100%;
 }
-.info-p2 img {
-  width: 225px;
+.info-p2 a {
+  font-family: 'fieldwork-bold', sans-serif !important;
+  color: #15202B;
+  text-decoration: none;
+  line-height: 22.85px;
 }
+.info-p2 a:hover {
+  text-decoration: none;
+  border-bottom: 1px solid #15202B;
+}
+
 .info-box {
-  padding: 50px 0 100px 0;
-  display: flex;
-  flex-wrap: wrap;
+  display: block;
   max-width: 900px;
   margin: auto;
 }
@@ -181,24 +196,13 @@ a:hover {
   padding: 0 20px;
   margin-top: auto;
 }
-.info-box > * {
-  flex: 1 1 33.33%;
-}
-.info-box a {
-  color: black;
-  text-decoration: none;
-  font-size: 18px;
-  line-height: 1.5;
-}
+
 .info-img {
   margin-top: auto;
   padding-bottom: 1rem;
 }
-.middle img{
-  width: 50% !important;
-}
 .info-box img {
-  width: 30%;
+  width: 80px;
 }
 /* End Info */
 
@@ -219,9 +223,47 @@ a:hover {
   transform: translate(-50%, -50%);
 }
 .fixed p {
-  font-size: 31px;
+  font-size: 18px;
 }
 /* End Slides */
+
+/* Start Drawings */
+.drawing-board {
+  position: relative;
+  width: 100%;
+  overflow: hidden; /* optional */
+}
+.drawing { 
+  position: absolute;
+  /* you will set top/left/width/z-index per card */
+}
+.drawing-image {
+  width: 100%;
+  position: relative;
+}
+.drawing img {
+  display: block;
+  width: 100%;
+  max-width: 400px;
+  margin: auto;
+  padding: 5rem;
+}
+
+@media (max-width: 767.9999px){
+  .drawing-board {
+    padding-top: 3rem;
+    padding-bottom: 5rem;
+    height: fit-content !important;
+  }
+
+  .drawing {
+    position: relative;
+    left: 50% !important;
+    top: auto !important;
+    transform: translateX(-50%);
+  }
+}
+/* End Drawings */
 
 /* Soon */
 .soon {
@@ -253,11 +295,19 @@ a:hover {
 }
 /* End Thoughts */
 
+@media screen and (min-width: 1024px) {
+  .short, .info-p2 {
+    padding: 0 7em;
+  }
+}
+
+@media screen and (min-width: 769px) {
+  .drawing img {
+    cursor: move;
+  }
+}
 
 @media screen and (max-width: 1024px) {
-  body {
-    font-size: 20px !important;
-  }
   .info-details {
     padding: 3rem 9rem 0;
   }
@@ -267,42 +317,45 @@ a:hover {
 }
 
 @media (max-width: 768px) {
-  body {
-    font-size: 18px !important;
-  }
   .info-details {
     padding: 3rem 50px 0;
   }
   .info-box a {
-    font-size: 16px;
+    font-size: 11px;
   }
   .info-p2 img {
     width: 190px;
   }
 }
 
-@media (max-width: 650px) {
-  .info-details {
-    padding: 3rem 20px 0;
+@media (max-width: 560px) {
+  .upper-right a span {
+    visibility: hidden;
   }
-  .info-wrap:not(:first-of-type) {
-    padding-top: 50px;
+  .upper-right a::after {
+    content: "Substack";
   }
-  .info-wrap:last-of-type {
-    padding-bottom: 50px;
+  .logo-small {
+    top: 28.5px !important
   }
-  .info-link {
-    margin: auto;
-    width: 45%
+  nav #navigation a,
+  div.lower-middle {
+    font-size: 11px;
   }
-  .info-box > *  {
-    flex-basis: 100%;
+  .lower-left {
+    padding: 0 0 20px 20px;
   }
-  .middle img{
-    width: 20% !important;
+  .lower-middle {
+    padding-bottom: 20px;
   }
-  .info-box img {
-    width: 10%;
+  .lower-right {
+    padding: 0 20px 20px 0;
+  }
+  .upper-left {
+    padding: 20px 0 0 20px;
+  }
+  .upper-right {
+    padding: 20px 20px 0 0;
   }
 }
 
@@ -321,5 +374,17 @@ a:hover {
   }
   .info-p2 img {
     width: 170px;
+  }
+}
+
+.navbar-nav > li > a {
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+@media (min-width: 768px) {
+  .navbar-nav > li > a {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
   }
 }
