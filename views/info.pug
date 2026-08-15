@@ -3,26 +3,25 @@ extends ./layout.pug
 block prepend body
   body.infopage(data-wio-id=pageContent.id)
     include ./partials/temp-header.pug
-    div.info
-       .wrapper   
-          div.info-box 
-            div.info-wrap
-              div.info-img
-                img(src="../images/PastLife.png")
-          div.info-details
-            p.short
-             != PrismicDOM.RichText.asText(pageContent.data.short_text)
-            p.long
-              != PrismicDOM.RichText.asText(pageContent.data.long_text)
-            br
-            p.info-p2(style="display:block;")
-              != PrismicDOM.RichText.asText(pageContent.data.general_text)
-          div.links
-            div.center
-              ul.navbar-nav
-                li
-                  a(href='#' id="sh") SHORT
-                li
-                  a(href='#' id="lg") LONG
+    div.info 
+      div.info-box 
+        div.info-wrap
+          div.info-img
+            img(src="../images/PastLife.png")
+      div.info-details
+        p.short
+          != PrismicDOM.RichText.asText(pageContent.data.short_text)
+        p.long
+          != PrismicDOM.RichText.asText(pageContent.data.long_text)
+        br
+        p.info-p2(style="display:block;")
+          != PrismicDOM.RichText.asText(pageContent.data.general_text)
+      div.links
+        div.center
+          ul.navbar-nav
+            li
+              a(href='#' id="sh") SHORT
+            li
+              a(href='#' id="lg") LONG
 
               

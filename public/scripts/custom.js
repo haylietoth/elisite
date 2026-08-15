@@ -1,9 +1,7 @@
 jQuery (document).ready(function(){
   $('.info-p2').html(function (index, text) {
-    this.innerHTML = text.replace("dirkelijah@gmail.com", "<a href='mailto:dirkelijah@gmail.com'>dirkelijah@gmail.com</a>")
+    this.innerHTML = text.replace("dirkelijah@gmail.com", "<a href='mailto:dirkelijah@gmail.com'>dirkelijah@gmail.com</a>");
   });
-
-
 
   //drag drawing photos
   // Make the DIV element draggable:

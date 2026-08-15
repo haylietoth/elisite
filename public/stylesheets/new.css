@@ -17,7 +17,7 @@ nav {
 div.lower-middle {
   font-family: 'fieldwork', sans-serif !important;
   text-transform: uppercase;
-  font-size: 16px;
+  font-size: 11px;
   color: #15202B;
 }
 #navigation a:hover{
@@ -31,7 +31,7 @@ div.lower-middle {
   transition: top 0.5s linear;
 }
 .logo-small {
-  top: 43px !important;
+  top: 39px !important;
   transition: top 0.5s linear;
   position: fixed;
   z-index: 100;
@@ -135,7 +135,7 @@ div.lower-middle {
 .links a {
   color: #15202B;
   letter-spacing: 1.0px;
-  font-size: 16px;
+  font-size: 11px;
 }
 .navbar-nav>li>a:focus {
   color: #15202B !important;
@@ -151,12 +151,12 @@ a:hover {
   /* border-bottom: 1px solid #15202B; */
 }
 .info {
-  margin: auto;
+  overflow: hidden;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   width: 100%;
-  padding-top: 2.5rem;
-}
-.wrapper {
-  margin-top: 75px;
 }
 .info-details {
   font-size: 13px;
@@ -223,7 +223,7 @@ a:hover {
   transform: translate(-50%, -50%);
 }
 .fixed p {
-  font-size: 31px;
+  font-size: 18px;
 }
 /* End Slides */
 
@@ -321,7 +321,7 @@ a:hover {
     padding: 3rem 50px 0;
   }
   .info-box a {
-    font-size: 16px;
+    font-size: 11px;
   }
   .info-p2 img {
     width: 190px;
@@ -329,9 +329,14 @@ a:hover {
 }
 
 @media (max-width: 560px) {
+  .upper-right a span {
+    visibility: hidden;
+  }
+  .upper-right a::after {
+    content: "Substack";
+  }
   .logo-small {
-    top: 28px !important;
-    left: 44% !important;
+    top: 28.5px !important
   }
   nav #navigation a,
   div.lower-middle {
