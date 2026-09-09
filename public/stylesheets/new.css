@@ -153,12 +153,16 @@ nav {
   /* background-color: white !important; */
 }
 a:hover {
-  color: #15202B !important;
+  color: inherit;
   background-color: transparent !important;
 }
-#sh:hover, #lg:hover{
+#sh:hover, #lg:hover {
+  color: #15202B !important;
   text-decoration: none;
-  /* border-bottom: 1px solid #15202B; */
+}
+
+.info-p2 a:hover {
+  color: #15202B !important;
 }
 .info {
   overflow: hidden;
