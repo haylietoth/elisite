@@ -50,9 +50,7 @@ jQuery (document).ready(function(){
   const drawings = Array.from(document.querySelectorAll(".drawing"));
 
   if (window.location.pathname === "/drawings" && drawings.length) {
-    window.addEventListener('load', function () {
-      applyAbsoluteLayout(drawings);
-    })
+    applyAbsoluteLayout(drawings);
   }
 
   function applyAbsoluteLayout(cards) {
@@ -261,17 +259,27 @@ jQuery (document).ready(function(){
   $('body').css('display','none');
   $('body').fadeIn(500);
 
-  // $(document).on("click", "a", function () {
-  //     var newUrl = $(this).attr("href");
-  //     if (!newUrl || newUrl[0] === "#") {
-  //         location.hash = newUrl;
-  //         return;
-  //     }
-  //       $("html").fadeOut(function () {
-  //           location = newUrl;
-  //       });
-  //     return false;
-  // });
+  ////filter////
+  $("#write").click(function(){
+    $(".Designer").hide();
+    $(".Writer").show();
+  });
+  $("#design").click(function(){
+    $(".Writer").hide();
+    $(".Designer").show();
+  });
+
+  $(".long").hide();
+  $("#sh").click(function(){
+    $(".long").hide();
+    $(".short").show();
+  });
+  $("#lg").click(function(){
+    $(".short").hide();
+    $(".long").show();
+  });
+  ////end filter//
+
   //random quote
   (function() {
     var quote = document.getElementsByClassName("quotes");
@@ -300,28 +308,100 @@ jQuery (document).ready(function(){
 
   //end random text//
 
-  ////filter////
-  $(document).ready(function(){
-    $("#write").click(function(){
-      $(".Designer").hide();
-      $(".Writer").show();
-    });
-    $("#design").click(function(){
-      $(".Writer").hide();
-      $(".Designer").show();
-    });
-  });
 
-  $(document).ready(function(){
-    $(".long").hide();
-    $("#sh").click(function(){
-      $(".long").hide();
-      $(".short").show();
-    });
-    $("#lg").click(function(){
-      $(".short").hide();
-      $(".long").show();
-    });
-  });
-  ////end filter//
+
+  // handle navigation color change based on image brightness
+  const navigation = document.querySelector("#navigation");
+  const logo = document.querySelector("#logo")
+
+  let lastSlide = null;
+  let lastImageUrl = null;
+
+  function getBackgroundImageUrl(element) {
+    const backgroundImage = getComputedStyle(element).backgroundImage;
+
+    const match = backgroundImage.match(/^url\(["']?(.*?)["']?\)$/);
+    return match ? match[1] : null;
+  }
+
+  function updateNavigationContrast() {
+    const currentSlide = document.querySelector(".slide.current");
+
+    if (!currentSlide) return;
+
+    const imageUrl = getBackgroundImageUrl(currentSlide);
+
+    if (!imageUrl) return;
+
+    // Avoid recalculating while the same slide is still visible
+    if (currentSlide === lastSlide && imageUrl === lastImageUrl) {
+      return;
+    }
+
+    lastSlide = currentSlide;
+    lastImageUrl = imageUrl;
+
+    const image = new Image();
+
+    // Required if the image server supports CORS
+    image.crossOrigin = "anonymous";
+
+    image.onload = function () {
+      const canvas = document.createElement("canvas");
+      const context = canvas.getContext("2d", { willReadFrequently: true });
+
+      // A small canvas is enough to determine general brightness
+      canvas.width = 50;
+      canvas.height = 50;
+
+      context.drawImage(image, 0, 0, canvas.width, canvas.height);
+
+      const pixels = context.getImageData(
+        0,
+        0,
+        canvas.width,
+        canvas.height
+      ).data;
+
+      let totalBrightness = 0;
+      let pixelCount = 0;
+
+      for (let i = 0; i < pixels.length; i += 4) {
+        const red = pixels[i];
+        const green = pixels[i + 1];
+        const blue = pixels[i + 2];
+
+        // Perceived luminance
+        const brightness =
+          0.2126 * red +
+          0.7152 * green +
+          0.0722 * blue;
+
+        totalBrightness += brightness;
+        pixelCount++;
+      }
+
+      const averageBrightness = totalBrightness / pixelCount;
+
+      // Lower values mean a darker image
+      const imageIsDark = averageBrightness < 120;
+
+      navigation.classList.toggle("is-light", imageIsDark);
+      logo.classList.toggle("is-light", imageIsDark);
+    };
+
+    image.onerror = function () {
+      // If the image cannot be analyzed, keep the default black text
+      navigation.classList.remove("is-light");
+      logo.classList.remove("is-light");
+    };
+
+    image.src = imageUrl;
+  }
+
+  // Check for slide changes
+  setInterval(updateNavigationContrast, 200);
+
+  // Run once immediately
+  updateNavigationContrast();
 });
